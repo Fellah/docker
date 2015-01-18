@@ -20,4 +20,9 @@ RUN apt-get update && \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /usr/src/s3fs-fuse*
 
-VOLUME ["/mnt/s3fs"]
+ADD passwd-s3fs /etc/passwd-s3fs
+RUN chmod 600 /etc/passwd-s3fs
+
+VOLUME /mnt/s3fs
+
+CMD /bin/bash

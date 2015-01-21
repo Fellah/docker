@@ -13,7 +13,7 @@ ExecStart=/usr/bin/docker run \
 	-v /etc/passwd-s3fs:/etc/passwd-s3fs \
 	-v /etc/syncthing:/etc/syncthing \
 	--privileged \
-	--rm --name="myprecious"
+	--rm --name="myprecious" myprecious
 ExecStop=/usr/bin/docker stop myprecious
 
 [Install]

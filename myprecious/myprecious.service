@@ -1,0 +1,20 @@
+[Unit]
+Description=My Precious
+After=docker.service
+Requires=docker.service
+
+[Service]
+TimeoutStartSec=0
+ExecStartPre=-/usr/bin/docker stop myprecious
+ExecStart=/usr/bin/docker run \
+	-p 80:80 \
+	-p 22000:22000 \
+	-p 22026:22026 \
+	-v /etc/passwd-s3fs:/etc/passwd-s3fs \
+	-v /etc/syncthing:/etc/syncthing \
+	--privileged \
+	--rm --name="myprecious"
+ExecStop=/usr/bin/docker stop myprecious
+
+[Install]
+WantedBy=multi-user.target

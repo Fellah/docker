@@ -11,7 +11,7 @@ ExecStartPre=/usr/bin/docker pull fellah/box-syncthing
 ExecStart=/usr/bin/docker run \
 	-p 22000:22000 \
 	-p 22026:22026 \
-	-v /etc/davfs/secrets \
+	-v /etc/davfs2/secrets \
 	-v /root/.config/syncthing \
 	--privileged \
 	--rm --name=syncthing fellah/box-syncthing

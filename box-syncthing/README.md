@@ -17,5 +17,5 @@ $ docker run \
 	-v /etc/davfs/secrets \
 	-v /root/.config/syncthing \
 	--privileged \
-	--rm --name=syncthing fellah/dixet-syncthing
+	--rm --name=syncthing fellah/box-syncthing
 ```

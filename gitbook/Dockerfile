@@ -2,11 +2,11 @@ FROM node
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-VOLUME /mnt/gitbook
+VOLUME /srv/gitbook
 
 RUN npm install -g gitbook-cli && \
  	npm cache clear
 
-WORKDIR /mnt/gitbook
+WORKDIR /srv/gitbook
 
-ENTRYPOINT /usr/local/bin/gitbook serve
+CMD /usr/local/bin/gitbook serve

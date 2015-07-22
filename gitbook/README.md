@@ -9,3 +9,9 @@ $ docker run -p 4000:4000 -v /srv/gitbook fellah/gitbook
 `4000` – Default port of GitBook service.
 
 `/srv/gitbook` – Default working directory for GitBook container.
+
+## Links
+
+[GitHub: GitBook](https://github.com/GitbookIO/gitbook)
+
+[GitBook Documentation](http://help.gitbook.com/)

@@ -3,10 +3,12 @@
 Run container:
 
 ```
-$ docker run -p 4000:4000 -v /srv/gitbook fellah/gitbook
+$ docker run -p 80:4000 -v /srv/gitbook fellah/gitbook
 ```
 
-`4000` – Default port of GitBook service.
+`4000` – GitBook default service port.
+
+`35729` – Live reload server port.
 
 `/srv/gitbook` – Default working directory for GitBook container.
 

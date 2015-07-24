@@ -3,8 +3,8 @@ FROM node
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
 RUN npm install -g gitbook-cli && \
- 	npm cache clear && \
-	gitbook install
+	gitbook install && \
+ 	npm cache clear
 
 WORKDIR /srv/gitbook
 VOLUME /srv/gitbook

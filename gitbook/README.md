@@ -12,6 +12,13 @@ $ docker run -p 80:4000 -v /srv/gitbook fellah/gitbook
 
 `/srv/gitbook` – Default working directory for GitBook container.
 
+
+## Build Static Website
+
+```
+$ docker run -v /srv/gitbook -v /srv/html fellah/gitbook gitbook build . /srv/html
+```
+
 ## Links
 
 [GitHub: GitBook](https://github.com/GitbookIO/gitbook)

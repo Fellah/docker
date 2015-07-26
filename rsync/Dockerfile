@@ -11,4 +11,4 @@ RUN apt-get update && \
 	apt-get clean && apt-get autoclean && \
 	rm -rf /tmp/* /var/lib/{apt,cache,dpkg,log}/* && \
 
-CMD rsync /srv/src/ /srv/dest
+CMD /usr/bin/rsync /srv/src/ /srv/dest

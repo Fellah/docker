@@ -2,9 +2,14 @@ FROM ubuntu:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-ADD https://github.com/syncthing/syncthing/releases/download/v0.11.7/syncthing-linux-amd64-v0.11.7.tar.gz /usr/src/
+LABEL version="0.11.18"
 
-RUN tar -zxf /usr/src/syncthing-linux-amd64-v0.11.7.tar.gz -C /opt && \
-	ln -s /opt/syncthing-linux-amd64-v0.11.7/syncthing /usr/local/bin
+ADD https://github.com/syncthing/syncthing/releases/download/v0.11.18/syncthing-linux-amd64-v0.11.18.tar.gz /tmp/
 
-CMD /usr/local/bin/syncthing -gui-address=0.0.0.0:8384 -no-browser
+RUN mkdir /opt/syncthing && \
+	tar -zxf /tmp/syncthing-linux-amd64-v0.11.18.tar.gz -C /opt/syncthing  --strip-components 1 && \
+	ln -s /opt/syncthing/syncthing /usr/local/bin
+
+EXPOSE 8384 22000
+
+CMD syncthing -gui-address=0.0.0.0:8384 -no-browser

@@ -17,3 +17,5 @@ USER abs
 
 VOLUME /srv/abs
 WORKDIR /srv/abs
+
+CMD repo-add repo.db.tar.gz *.pkg.tar.xz

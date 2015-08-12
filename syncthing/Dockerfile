@@ -12,7 +12,11 @@ RUN mkdir /opt/syncthing && \
 	useradd --create-home --no-user-group --uid 1000 syncthing
 
 USER syncthing
+
 EXPOSE 8384 22000
-VOLUME /srv/syncthing
+
+VOLUME /home/syncthing
+
+WORKDIR /home/syncthing
 
 CMD syncthing

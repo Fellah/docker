@@ -2,9 +2,9 @@ FROM node
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-LABEL version="2.2.0"
+LABEL version="2.3.0"
 
-RUN npm install -g gitbook-cli && gitbook versions:install 2.2.0 && \
+RUN npm install -g gitbook-cli && gitbook versions:install 2.3.0 && \
 	apt-get clean autoclean && npm cache clear && \
 	rm -rf /tmp/* /var/lib/{apt,dpkg,cache,log}/*
 

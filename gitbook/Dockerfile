@@ -2,14 +2,11 @@ FROM node:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-LABEL version="2.3.3"
+LABEL version="2.4.3"
 
-RUN npm install -g gitbook-cli && gitbook versions:install 2.3.3 && \
-	useradd --system gitbook && \
+RUN npm install -g gitbook-cli && gitbook versions:install 2.4.3 && \
 	apt-get clean autoclean && npm cache clear && \
 	rm -rf /tmp/* /var/lib/{apt,dpkg,cache,log}/*
-
-USER gitbook
 
 WORKDIR /srv/gitbook
 

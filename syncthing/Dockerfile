@@ -2,14 +2,14 @@ FROM ubuntu:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-LABEL version="0.12.2"
+LABEL version="0.12.3"
 
-ADD https://github.com/syncthing/syncthing/releases/download/v0.12.2/syncthing-linux-amd64-v0.12.2.tar.gz /tmp/
+ADD https://github.com/syncthing/syncthing/releases/download/v0.12.3/syncthing-linux-amd64-v0.12.3.tar.gz /tmp/
 
 RUN mkdir /opt/syncthing && \
-	tar -zxf /tmp/syncthing-linux-amd64-v0.12.2.tar.gz -C /opt/syncthing  --strip-components 1 && \
+	tar -zxf /tmp/syncthing-linux-amd64-v0.12.3.tar.gz -C /opt/syncthing  --strip-components 1 && \
 	ln -s /opt/syncthing/syncthing /usr/local/bin && \
-	useradd --create-home --uid 1000 syncthing
+	useradd --create-home syncthing
 
 USER syncthing
 

@@ -12,4 +12,8 @@ RUN mkdir /opt/syncthing && \
 
 EXPOSE 8384 22000
 
+VOLUME /root/sync
+
+WORKDIR /root/sync
+
 CMD syncthing

@@ -2,12 +2,12 @@ FROM ubuntu:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-LABEL version="0.12.7"
+LABEL version="0.12.8"
 
-ADD https://github.com/syncthing/syncthing/releases/download/v0.12.7/syncthing-linux-amd64-v0.12.7.tar.gz /tmp/
+ADD https://github.com/syncthing/syncthing/releases/download/v0.12.8/syncthing-linux-amd64-v0.12.8.tar.gz /tmp/
 
 RUN mkdir /opt/syncthing && \
-	tar -zxf /tmp/syncthing-linux-amd64-v0.12.7.tar.gz -C /opt/syncthing  --strip-components 1 && \
+	tar -zxf /tmp/syncthing-linux-amd64-v0.12.8.tar.gz -C /opt/syncthing  --strip-components 1 && \
 	ln -s /opt/syncthing/syncthing /usr/local/bin
 
 EXPOSE 8384 22000

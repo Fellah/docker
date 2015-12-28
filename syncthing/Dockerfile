@@ -2,18 +2,18 @@ FROM ubuntu:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-LABEL version="0.12.9"
+LABEL version="0.12.10"
 
-ADD https://github.com/syncthing/syncthing/releases/download/v0.12.9/syncthing-linux-amd64-v0.12.9.tar.gz /tmp/
+ADD https://github.com/syncthing/syncthing/releases/download/v0.12.10/syncthing-linux-amd64-v0.12.10.tar.gz /tmp/
 
 RUN mkdir /opt/syncthing && \
-	tar -zxf /tmp/syncthing-linux-amd64-v0.12.9.tar.gz -C /opt/syncthing  --strip-components 1 && \
+	tar -zxf /tmp/syncthing-linux-amd64-v0.12.10.tar.gz -C /opt/syncthing  --strip-components 1 && \
 	ln -s /opt/syncthing/syncthing /usr/local/bin
 
 EXPOSE 8384 22000
 
-VOLUME /root/sync
+VOLUME /root
 
-WORKDIR /root/sync
+WORKDIR /root
 
 CMD syncthing

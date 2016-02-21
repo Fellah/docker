@@ -10,13 +10,13 @@ RUN rm -rf /etc/pacman.d/gnupg/* && \
 	pacman-db-upgrade && \
 	rm -rf /tmp/* /var/cache/pacman/pkg/*
 
-RUN pacman -Sy --noconfirm fakeroot && \
+RUN pacman -Sy --noconfirm sudo fakeroot && \
 	rm -rf /tmp/* /var/cache/pacman/pkg/*
 
-RUN pacman -Sy --noconfirm python python-setuptools && \
-	rm -rf /tmp/* /var/cache/pacman/pkg/*
+ADD sudoers.d/wheel /etc/sudoers.d/wheel
 
-RUN useradd --create-home abs
+RUN useradd --create-home abs && \
+	gpasswd -a abs wheel
 
 USER abs
 

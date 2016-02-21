@@ -13,6 +13,9 @@ RUN rm -rf /etc/pacman.d/gnupg/* && \
 RUN pacman -Sy --noconfirm fakeroot && \
 	rm -rf /tmp/* /var/cache/pacman/pkg/*
 
+RUN pacman -Sy --noconfirm python python-setuptools && \
+	rm -rf /tmp/* /var/cache/pacman/pkg/*
+
 RUN useradd --create-home abs
 
 USER abs

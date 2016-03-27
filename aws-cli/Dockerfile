@@ -1,5 +1,7 @@
 FROM fellah/ubuntu:latest
 
+MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
+
 USER root
 
 RUN apt-get -y update &&\

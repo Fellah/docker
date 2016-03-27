@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
+
 ENV DOCKER true
 
 RUN apt-get update &&\

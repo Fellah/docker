@@ -1,17 +1,12 @@
-FROM ubuntu:latest
+FROM fellah/ubuntu:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
+USER root
+
 RUN apt-get -y install software-properties-common && \
 	apt-add-repository -y ppa:ansible/ansible && \
-	apt-get update -y && \
-	apt-get install -y ansible sshpass && \
-	useradd -m -N -u 1000 ansible
+	apt-get update && \
+	apt-get -y install ansible sshpass
 
-USER ansible
-
-VOLUME /home/ansible
-
-WORKDIR /home/ansible
-
-CMD bash
+USER fellah

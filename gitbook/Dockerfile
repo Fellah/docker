@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:6-slim
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
@@ -6,9 +6,9 @@ ARG version=3.0.0
 
 LABEL version=$version
 
-RUN npm install -g gitbook-cli && gitbook versions:install ${version} && \
-	apt-get clean autoclean && npm cache clear && \
-	rm -rf /tmp/* /var/lib/{apt,dpkg,cache,log}/*
+RUN npm install -g gitbook-cli && gitbook fetch ${version} &&\
+	npm cache clear &&\
+	rm -rf /tmp/*
 
 WORKDIR /srv/gitbook
 

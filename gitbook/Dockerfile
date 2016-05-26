@@ -2,11 +2,11 @@ FROM node:6-slim
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-ARG VERSION=3.0.0
+ARG VERSION=3.0.1
 
-LABEL version=$version
+LABEL version=$VERSION
 
-RUN npm install -g gitbook-cli &&\
+RUN npm install --global gitbook-cli &&\
 	gitbook fetch ${VERSION} &&\
 	npm cache clear &&\
 	rm -rf /tmp/*

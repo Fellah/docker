@@ -23,4 +23,4 @@ $ docker run -v /srv/gitbook -v /srv/html fellah/gitbook gitbook build . /srv/ht
 
 [GitHub: GitBook](https://github.com/GitbookIO/gitbook)
 
-[GitBook Documentation](http://help.gitbook.com/)
+[GitBook Toolchain Documentation](http://toolchain.gitbook.com)

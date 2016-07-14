@@ -2,7 +2,7 @@ FROM node:6-slim
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-ARG VERSION=3.1.1
+ARG VERSION=3.2.0
 
 LABEL version=$VERSION
 

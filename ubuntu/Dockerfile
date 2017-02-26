@@ -6,7 +6,7 @@ ENV DOCKER true
 
 RUN apt-get update && \
 	apt-get --yes upgrade && \
-	apt-get --yes install sudo man xdg-user-dirs
+	apt-get --yes install sudo man git xdg-user-dirs
 
 RUN useradd \
 	--uid 1000 \

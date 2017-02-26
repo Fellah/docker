@@ -4,11 +4,17 @@ MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
 ENV DOCKER true
 
-RUN apt-get update &&\
-	apt-get -y upgrade &&\
-	apt-get -y install xdg-user-dirs
+RUN apt-get update && \
+	apt-get --yes upgrade && \
+	apt-get --yes install sudo man xdg-user-dirs
 
-RUN useradd --uid 1000 --user-group --create-home fellah
+RUN useradd \
+	--uid 1000 \
+	--user-group \
+	--groups sudo,users \
+	--create-home \
+	--password '$1$oZeWxk4p$yD7kDgmEEChHDRjoCDhuc.' \
+	fellah
 
 USER fellah
 

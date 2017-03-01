@@ -4,9 +4,9 @@ MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
 USER root
 
-RUN apt-get -y install software-properties-common && \
-	apt-add-repository -y ppa:ansible/ansible && \
+RUN apt-get --yes install software-properties-common && \
+	apt-add-repository --yes ppa:ansible/ansible && \
 	apt-get update && \
-	apt-get -y install ansible sshpass
+	apt-get --yes install ansible sshpass
 
 USER fellah

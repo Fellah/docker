@@ -4,8 +4,9 @@ MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
 USER root
 
-RUN pacman -Sy --noconfirm fakeroot && \
-	rm -rf /tmp/* /var/cache/pacman/pkg/*
+RUN pacman --sync --refresh --sysupgrade --noconfirm && \
+	pacman --sync --refresh --noconfirm fakeroot binutils file && \
+	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
 ADD makepkg.conf /etc/makepkg.conf
 

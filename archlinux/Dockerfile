@@ -11,7 +11,7 @@ RUN rm --recursive --force /etc/pacman.d/gnupg/* && \
 	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
 RUN pacman --sync --refresh --noconfirm \
-		gzip grep sudo && \
+		gzip grep sudo xdg-user-dirs && \
 	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
 ADD wheel /etc/sudoers.d/wheel
@@ -25,6 +25,8 @@ RUN useradd \
 	fellah
 
 USER fellah
+
+RUN xdg-user-dirs-update
 
 VOLUME /home/fellah
 

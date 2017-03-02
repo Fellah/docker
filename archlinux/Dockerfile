@@ -2,21 +2,26 @@ FROM base/archlinux:latest
 
 MAINTAINER Roman Krivetsky <r.krivetsky@gmail.com>
 
-RUN rm -rf /etc/pacman.d/gnupg/* && \
+RUN rm --recursive --force /etc/pacman.d/gnupg/* && \
 	pacman-key --init && \
 	pacman-key --populate archlinux && \
 	pacman-key --refresh-keys && \
-	pacman -Syyu --noconfirm && \
+	pacman --sync --refresh --sysupgrade --noconfirm && \
 	pacman-db-upgrade && \
-	rm -rf /tmp/* /var/cache/pacman/pkg/*
+	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
-RUN pacman -Sy --noconfirm sudo && \
-	rm -rf /tmp/* /var/cache/pacman/pkg/*
+RUN pacman --sync --refresh --noconfirm sudo && \
+	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
-ADD sudoers.d/wheel /etc/sudoers.d/wheel
+ADD wheel /etc/sudoers.d/wheel
 
-RUN useradd --create-home fellah && \
-	gpasswd --add fellah wheel
+RUN useradd \
+	--uid 1000 \
+	--user-group \
+	--groups wheel,users \
+	--create-home \
+	--password '$1$oZeWxk4p$yD7kDgmEEChHDRjoCDhuc.' \
+	fellah
 
 USER fellah
 

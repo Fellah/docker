@@ -8,6 +8,4 @@ RUN pacman --sync --refresh --sysupgrade --noconfirm && \
 	pacman --sync --refresh --noconfirm fakeroot binutils file && \
 	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
-ADD makepkg.conf /etc/makepkg.conf
-
 USER fellah

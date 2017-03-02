@@ -10,7 +10,8 @@ RUN rm --recursive --force /etc/pacman.d/gnupg/* && \
 	pacman-db-upgrade && \
 	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
-RUN pacman --sync --refresh --noconfirm sudo && \
+RUN pacman --sync --refresh --noconfirm \
+		gzip grep sudo && \
 	rm --recursive --force /tmp/* /var/cache/pacman/pkg/*
 
 ADD wheel /etc/sudoers.d/wheel
